@@ -1,65 +1,67 @@
-### **Codebook for `reshaped_travel_data`**  
+
+
+### **Codebook for *foreign_spouse_reshaped.csv***
 
 #### **Dataset Description**  
-This dataset contains information on the number of travelers or residents categorized by year, district, nationality, gender, and count. It is structured in a tidy format, making it suitable for analysis in R using the Tidyverse framework.  
+This dataset contains information about foreign spouses in different administrative districts of Taiwan. It records the number of foreign spouses categorized by year, district, nationality, and gender.
 
----
-  
-  ### **Variable Information**  
-  
-  | Variable Name | Class | Description | Example Values |
-  |--------------|-------|-------------|---------------|
-  | `year` | Integer | The year in which the data was recorded (ROC calendar). | `110` (2021), `112` (2023) |
-  | `district` | Character | The administrative district in Taiwan. | `"鹽埕"`, `"鼓山"`, `"左營"` |
-  | `nationality` | Character | The nationality of the individual. | `"印尼"`, `"馬來西亞"`, `"越南"` |
-  | `gender` | Character | The gender of the individual. | `"男性"`, `"女性"` |
-  | `count` | Integer | The number of individuals in this category. | `1`, `6`, `253` |
-  
-  ---
-  這裡是更詳細的 **codebook**，包括變數資訊及單一變數的描述：  
+#### **Variable Information**  
+
+| Variable Name | Data Type | Description | Example |
+|--------------|----------|-------------|---------|
+| 年度 (Year) | Integer | The year of the record, based on Taiwan’s official calendar (ROC Year). | 110 (2021) |
+| 行政區 (District) | String | The administrative district where the foreign spouses reside. | 鹽埕 (Yancheng) |
+| 國籍 (Nationality) | String | The nationality of the foreign spouse. | 印尼 (Indonesia), 馬來西亞 (Malaysia), 新加坡 (Singapore) |
+| 性別 (Gender) | String | The gender of the foreign spouse. | 男性 (Male), 女性 (Female) |
+| 人數 (Count) | Integer | The number of foreign spouses in the given category. | 6 |
+
+### **Codebook for *foreign_spouse_reshaped (1).csv***  
 
 ---
 
-### **變數資訊 (Variables Information)**  
-
-| 變數名稱 (Variable) | 說明 (Description) | 類型 (Type) | 範例值 (Example Values) |
-|----------------|------------------|------------|----------------|
-| `年度` (Year) | 資料收集的年份（民國年） | 整數 (Integer) | `110`（2021年） |
-| `行政區` (District) | 台灣的行政區域 | 字串 (Character) | `"鹽埕"`, `"鼓山"`, `"左營"` |
-| `國籍` (Nationality) | 旅客或人口的國籍 | 字串 (Character) | `"印尼"`, `"馬來西亞"`, `"越南"` |
-| `性別` (Gender) | 旅客或人口的性別 | 字串 (Character) | `"男性"`, `"女性"` |
-| `人數` (Count) | 此類別的人數 | 整數 (Integer) | `1`, `6`, `253` |
+## **Dataset Description**  
+This dataset records the number of foreign spouses residing in various administrative districts of Taiwan. It provides demographic information categorized by year, district, nationality, gender, and count of individuals.
 
 ---
 
-### **單一變數的描述 (Variable Descriptions)**  
+## **Variable Information & Descriptions**  
 
-#### **1. 年度 (`年度`)**  
-- **定義**：資料收集的年份，以民國紀年表示（如 110 = 2021 年）。  
-- **類型**：整數（Integer）  
-- **可能範圍**：最小值約 `80`（1991年），最大值約 `113`（2024年）。  
-- **缺失值處理**：無缺失值，若有錯誤值（如負數或過去未來的極端值），需檢查並修正。  
+### **1. 年度 (Year)**  
+- **Type:** Integer  
+- **Description:** Represents the year of the recorded data, using Taiwan’s official calendar (ROC Year).  
+- **Example Values:**  
+  - 110 → Corresponds to the year 2021 in the Gregorian calendar.  
+  - 111 → Corresponds to the year 2022.  
 
-#### **2. 行政區 (`行政區`)**  
-- **定義**：台灣的行政區，如高雄市的不同區域。  
-- **類型**：字串（Character）  
-- **可能值**：依照官方行政區命名，如 `"鹽埕"`, `"鼓山"`, `"左營"`, `"前鎮"` 等。  
-- **缺失值處理**：若有缺失值可視為未知 (`NA`)，或透過其他資料推測填補。  
+### **2. 行政區 (District)**  
+- **Type:** String  
+- **Description:** The administrative district where the foreign spouses reside. Taiwan is divided into various districts across different cities.  
+- **Example Values:**  
+  - 鹽埕 (Yancheng)  
+  - 鼓山 (Gushan)  
+  - 信義 (Xinyi)  
 
-#### **3. 國籍 (`國籍`)**  
-- **定義**：旅客或人口的國籍。  
-- **類型**：字串（Character）  
-- **可能值**：依照標準國家名稱，例如 `"印尼"`, `"馬來西亞"`, `"越南"`, `"美國"`。  
-- **資料標準化**：應確保國籍名稱統一，例如 `"U.S.A."` 和 `"USA"` 應統一為 `"美國"`。  
+### **3. 國籍 (Nationality)**  
+- **Type:** String  
+- **Description:** The nationality of the foreign spouse. This represents the country of origin before obtaining residency in Taiwan.  
+- **Example Values:**  
+  - 印尼 (Indonesia)  
+  - 越南 (Vietnam)  
+  - 菲律賓 (Philippines)  
+  - 泰國 (Thailand)  
+  - 日本 (Japan)  
 
-#### **4. 性別 (`性別`)**  
-- **定義**：個體的性別分類。  
-- **類型**：字串（Character）  
-- **可能值**：通常為 `"男性"` 和 `"女性"`，若有其他性別標記，應確認是否需合併或重新分類。  
-- **缺失值處理**：若有缺失值 (`NA`)，可視情況填補或刪除。  
+### **4. 性別 (Gender)**  
+- **Type:** String  
+- **Description:** The gender of the foreign spouse as recorded in official documents.  
+- **Example Values:**  
+  - 男性 (Male)  
+  - 女性 (Female)  
 
-#### **5. 人數 (`人數`)**  
-- **定義**：對應類別的總人數。  
-- **類型**：整數（Integer）  
-- **可能範圍**：最小值 `0`，無理論上限，但應檢查異常值（如超大數據）。  
-- **缺失值處理**：若出現 `NA` 或負值，應檢查資料來源是否有誤。  
+### **5. 人數 (Count)**  
+- **Type:** Integer  
+- **Description:** The total number of foreign spouses that match the given criteria (year, district, nationality, and gender).  
+- **Example Values:**  
+  - 6 → There are 6 individuals in this category.  
+  - 24 → There are 24 individuals in this category.  
+
